@@ -238,7 +238,7 @@ template.innerHTML = `
 #myCanvas {
     border: 2px solid #cbd5e1;
     border-radius: 8px;
-    background: green;
+    background: white;
     cursor: crosshair;
 }
 
