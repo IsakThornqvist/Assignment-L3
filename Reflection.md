@@ -1,6 +1,8 @@
 # Reflection during development
 The first step in my work process was deciding what kind of application I wanted to create. At first, I was leaning toward making a football tactics board, but I eventually came up with an idea that I think is even better and more fun. I decided to use my canvas module to create a drawing game where players gather around one computer, draw random words, and the others have to guess what’s being drawn.
 
+The implementation of the wordGenerator was quite simple, I tried to follow the best practices by making all the methods private and the wordGenerator itself has no external needs it exists on its own and the component could easily be reused in another project or application.
+
 # Notes to self - Workflow
 1. Get new sections to show up in interface
 2. Word generator component
@@ -59,3 +61,116 @@ The first step in my work process was deciding what kind of application I wanted
     - Deploy to public URL
     - Test deployed version
     
+
+# Reflection on Clean Code
+
+**Author:** [Isak]  
+**Course:** [1dv610]  
+
+---
+
+## Introduction
+
+This reflection document examines how the principles from Robert C. Martin's "Clean Code" chapters 2-11 have influenced the development of my drawing game application (L3) and the underlying canvas board module (L2). Each chapter is analyzed in terms of its practical impact on my code, the challenges encountered, and the trade-offs made during implementation. The reflection aims to demonstrate understanding of Clean Code principles and their real-world application in object-oriented programming.
+
+---
+
+## Chapter 2: Meaningful Names
+
+[4-6 sentences about how this chapter affected the code]
+
+
+
+**Code Example:**
+
+
+
+---
+
+## Chapter 3: Functions
+
+[4-6 sentences about how this chapter affected the code]
+
+
+**Code Example:**
+
+
+---
+
+## Chapter 4: Comments
+
+[4-6 sentences about how this chapter affected the code]
+
+
+**Code Example:**
+
+
+---
+
+## Chapter 5: Formatting
+
+[4-6 sentences about how this chapter affected the code]
+
+
+**Code Example:**
+
+
+---
+
+## Chapter 6: Objects and Data Structures
+
+[4-6 sentences about how this chapter affected the code]
+
+
+**Code Example:**
+
+
+---
+
+## Chapter 7: Error Handling
+
+[4-6 sentences about how this chapter affected the code]
+
+**Code Example:**
+
+---
+
+## Chapter 8: Boundaries
+
+[4-6 sentences about how this chapter affected the code]
+
+**Code Example:**
+
+
+---
+
+## Chapter 9: Unit Tests
+
+[4-6 sentences about how this chapter affected the code]
+
+**Code Example:**
+
+
+---
+
+## Chapter 10: Classes
+
+[4-6 sentences about how this chapter affected the code]
+
+**Code Example:**
+
+
+---
+
+## Chapter 11: Systems
+
+[4-6 sentences about how this chapter affected the code]
+
+**Code Example:**
+
+---
+
+## Conclusion
+
+
+---
