@@ -26,8 +26,8 @@ customElements.define('word-generator',
    */
     connectedCallback () {
       console.log('word-gen added')
-      this.setupWordEvents()
-      // this.displayRandomWord()
+      this.#setupWordEvents()
+      // this.#displayRandomWord()
     }
 
     /**
@@ -39,20 +39,20 @@ customElements.define('word-generator',
    * @private
    * @returns {void}
    */
-    setupWordEvents () {
+    #setupWordEvents () {
       this.#generateWordButton.addEventListener('click', () => {
         console.log('generate word')
-        const randomWord = this.getRandomWord()
+        const randomWord = this.#getRandomWord()
         this.#displayWord.textContent = randomWord
       })
     }
 
-    getRandomWord () {
+    #getRandomWord () {
       const randomIndex = Math.floor(Math.random() * this.#randomWords.length)
       return this.#randomWords[randomIndex]
     }
 
-/*     displayRandomWord () {
+/*     #displayRandomWord () {
       const randomWord = this.getRandomWord()
       this.#displayWord.textContent = randomWord
     } */
