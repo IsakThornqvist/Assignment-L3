@@ -1,10 +1,13 @@
 import '../../myModule/src/js/index.js'
 import '../src/components/wordGenerator/index.js'
+import '../src/components/playerManager/index.js'
 
 const board = document.createElement('my-board')
 const wordGenerator = document.createElement('word-generator')
+const playerManager = document.createElement('player-manager')
 document.body.appendChild(board)
 document.body.appendChild(wordGenerator)
+document.body.appendChild(playerManager)
 
 board.setCanvasSize(500, 500)
 
