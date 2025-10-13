@@ -9,11 +9,10 @@ template.innerHTML = `
     </div>
 
     <div id='playerControls'> 
-        <button id='removePlayerButton'> </button>
-        <button id='increaseScoreButton'> </button>
+        <button id='removePlayerButton'> Remove Player </button>
+        <button id='increaseScoreButton'> Increasee Score</button>
     </div>
 
-    // current score
 
     <ul id='playerList'>
 

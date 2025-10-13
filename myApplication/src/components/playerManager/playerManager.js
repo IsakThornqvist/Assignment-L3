@@ -30,17 +30,33 @@ customElements.define('player-manager',
       this.#playerNameInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
           const playerName = this.#playerNameInput.value.trim()
+
           if (playerName) {
             console.log('Name submitted:', playerName)
             this.#playerNameInput.value = ''
+            if (this.#currentPlayers.length >= 4) {
+              console.log('Max 4 players allowed currently')
+              return
+            }
+
             this.#currentPlayers.push(playerName)
             console.log(this.#currentPlayers)
+
+            this.#playerList.innerHTML = ''
+            this.#currentPlayers.forEach((playerName, index) => {
+              const playerListItem = document.createElement('li')
+              playerListItem.textContent = `${playerName} SCORE: ??`
+              playerListItem.dataset.index = index
+              this.#playerList.appendChild(playerListItem)
+            }
+            )
           }
         }
       })
     }
 
     removePlayer () {
+        this.#playerList
 
     }
 

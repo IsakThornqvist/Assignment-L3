@@ -1,7 +1,9 @@
 # Reflection during development
 The first step in my work process was deciding what kind of application I wanted to create. At first, I was leaning toward making a football tactics board, but I eventually came up with an idea that I think is even better and more fun. I decided to use my canvas module to create a drawing game where players gather around one computer, draw random words, and the others have to guess what’s being drawn.
 
-The implementation of the wordGenerator was quite simple, I tried to follow the best practices by making all the methods private and the wordGenerator itself has no external needs it exists on its own and the component could easily be reused in another project or application.
+The implementation of the wordGenerator was quite simple, I tried to follow the best practices by making all the methods private and the wordGenerator itself has no external needs it exists on its own and the component could easily be reused in another project or application. A late addition I did to the wordGenerator is that I added a wordList.js which I import in the wordGenerator.js and then I generate the words from this list. 
+
+The **playerManager** is more complex than the wordGenerator, I started out with making the template for the component and set it all up so that the element was visible in the browser. I decided that you can play with up to 4 players and I handled the players in this way. Firstly I created a private empty array called **#currentPlayers** that I use to thore the current players. As I mentioned the array only allows 4 players to be added. Then I created a ul list which will be used to display these names and the scores next to them and so on. I also added in the ability to remove a player aswell as the ability to be able to increase the score of a player manually.
 
 # Notes to self - Workflow
 1. Get new sections to show up in interface
