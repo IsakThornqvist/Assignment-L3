@@ -1,4 +1,5 @@
 import { template } from './wordGenerator-template.js'
+import { wordList } from './wordList.js'
 
 customElements.define('word-generator',
 
@@ -6,7 +7,7 @@ customElements.define('word-generator',
     #wordGenerator
     #generateWordButton
     #displayWord
-    #randomWords = ['car', 'sun', 'football', 'shark', 'bee', 'robot']
+    #randomWords = wordList
 
     constructor () {
       super()
