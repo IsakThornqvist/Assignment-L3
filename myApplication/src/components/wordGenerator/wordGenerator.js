@@ -3,12 +3,21 @@ import { wordList } from './wordList.js'
 
 customElements.define('word-generator',
 
+  /**
+ * Generates and displays random words for the drawing game.
+ *
+ * @class
+ * @extends {HTMLElement}
+ */
   class extends HTMLElement {
     #wordGenerator
     #generateWordButton
     #displayWord
     #randomWords = wordList
 
+    /**
+     * Sets up the word-generator, shadow DOM, and grabs all the needed elements.
+     */
     constructor () {
       super()
 
@@ -20,26 +29,18 @@ customElements.define('word-generator',
     }
 
     /**
-   * Called automatically when the custom element is inserted into the DOM.
-   * Initializes event listeners and displays an initial random word.
-   *
-   * @override
-   */
+     * Sets up event listeners when element is inserted.
+     */
     connectedCallback () {
       console.log('word-gen added')
       this.#setupWordEvents()
-      // this.#displayRandomWord()
     }
 
     /**
-   * Sets up UI event listeners for the component.
-   *
-   * Attaches a click event handler to the "Generate Word" button,
-   * which retrieves and displays a new random word each time it’s pressed.
-   *
-   * @private
-   * @returns {void}
-   */
+     * Sets up click listener for word generation button.
+     *
+     * @private
+     */
     #setupWordEvents () {
       this.#generateWordButton.addEventListener('click', () => {
         console.log('generate word')
@@ -48,6 +49,12 @@ customElements.define('word-generator',
       })
     }
 
+    /**
+     * Returns random word from word list.
+     *
+     * @private
+     * @returns {string}
+     */
     #getRandomWord () {
       const randomIndex = Math.floor(Math.random() * this.#randomWords.length)
       return this.#randomWords[randomIndex]
