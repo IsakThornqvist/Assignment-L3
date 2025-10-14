@@ -2,6 +2,12 @@ import { template } from './playerManager-template.js'
 
 customElements.define('player-manager',
 
+  /**
+  * Manages game players and their scores.
+
+  * @class
+ * @extends {HTMLElement}
+ */
   class extends HTMLElement {
     #addNewPlayerButton
     #playerNameInput
@@ -10,6 +16,9 @@ customElements.define('player-manager',
     #playerList
     #currentPlayers = []
 
+    /**
+     * Sets up the player-manager, shadow DOM, and grabs all the needed elements.
+     */
     constructor () {
       super()
 
@@ -22,11 +31,19 @@ customElements.define('player-manager',
       this.#playerList = this.shadowRoot.querySelector('#playerList')
     }
 
+    /**
+     * Runs setup when the element is added to the page.
+     */
     connectedCallback () {
       this.#addPlayer()
       this.#showPlayerList()
     }
 
+    /**
+     * Sets up event listeners for player input.
+     *
+    * @private
+     */
     #addPlayer () {
       this.#playerNameInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
@@ -37,6 +54,11 @@ customElements.define('player-manager',
       this.#addNewPlayerButton.addEventListener('click', () => this.#handlePlayerNameSubmission())
     }
 
+    /**
+     * Handles player name submission.
+     *
+     * @private
+     */
     #handlePlayerNameSubmission () {
       const playerName = this.#playerNameInput.value.trim()
       if (!this.#validatePlayerName(playerName)) return
@@ -46,6 +68,13 @@ customElements.define('player-manager',
       this.#showPlayerList()
     }
 
+    /**
+     * Validates player name.
+     *
+     * @private
+     * @param {string} playerName
+     * @returns {boolean}
+     */
     #validatePlayerName (playerName) {
       if (!playerName) return false
       if (this.#currentPlayers.length >= 4) {
@@ -55,11 +84,22 @@ customElements.define('player-manager',
       return true
     }
 
+    /**
+     * Adds player to array.
+     *
+     * @private
+     * @param {string} playerName
+     */
     #addPlayerToList (playerName) {
       this.#currentPlayers.push({ name: playerName, score: 0 })
       console.log(`currentplayers ${this.#currentPlayers}`)
     }
 
+    /**
+     * Renders player list with action buttons.
+     *
+     * @private
+     */
     #showPlayerList () {
       this.#playerList.innerHTML = ''
       this.#currentPlayers.forEach((player, index) => {
@@ -88,11 +128,23 @@ customElements.define('player-manager',
       })
     }
 
+    /**
+     * Removes player at index.
+     *
+     * @private
+     * @param {number} index
+     */
     #removePlayer (index) {
       this.#currentPlayers.splice(index, 1)
       this.#showPlayerList()
     }
 
+    /**
+     * Increments player score (max 8).
+     *
+     * @private
+     * @param {number} index
+     */
     #increasePlayerScore (index) {
       const currentPlayer = this.#currentPlayers[index]
       if (currentPlayer.score >= 8) {
@@ -103,6 +155,12 @@ customElements.define('player-manager',
       }
     }
 
+    /**
+     * Decrements player score (min 0).
+     *
+     * @private
+     * @param {number} index
+     */
     #decreasePlayerScore (index) {
       const currentPlayer = this.#currentPlayers[index]
       if (currentPlayer.score < 1) {
