@@ -161,12 +161,14 @@ In this code I tried to `indent` the code to make it as easy as possible to read
 ---
 
 ## Chapter 6: Objects and Data Structures
-
-[4-6 sentences about how this chapter affected the code]
+I tried to structure each player as an object with properties name and score instead of two arrays. This helps with the `data encapsulation` principle and nicely captures a object-oriented design. If you want to access the player array you do so via private methods, supporting `information hiding`. This structure improves maintainability, and reduces coupling between data representation and the UI logic.
 
 
 **Code Example:**
-
+```js
+#currentPlayers.push({ name: playerName, score: 0 })
+```
+In the code above I show an example of my code where I use the object and basically add a player to the list of players.
 
 ---
 
