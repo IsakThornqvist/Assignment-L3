@@ -100,22 +100,44 @@ The code above handles the `name submission` of the players and shows the list o
 ---
 
 ## Chapter 3: Functions
+Chapter 3 is all about `functions` and how to design them, the thing that left the biggest mark on me from this chapter is the `single responsibility principle` by keeping the functions small and focused one one task. During development there was many times where I implemented a functionality and then went back to refactor the code and seperate the fuctionality between the different methods as much as possible. 
 
-[4-6 sentences about how this chapter affected the code]
-
+Another thing that gets brough up in chapter 3 is that you should keep the `number of arguments` to a minumal (0-2). The most ammount of arguments a method has in my code is currently one. So to sum it up, in general I had chapter 3 in mind during the entire development proccess and tried to follow the guidelines in it to the best of my ability.
 
 **Code Example:**
-
+```js
+    #removePlayer (index) {
+      this.#currentPlayers.splice(index, 1)
+      this.#showPlayerList()
+    }
+```
+The code above handles the `remove` functionality for the players, it is a small method that enforces the `single responsibility principle` and keeps the arguments to one and does not rely on other methods it only calls `this.#showPlayerList()` to display the list of current players.
 
 ---
 
 ## Chapter 4: Comments
-
-[4-6 sentences about how this chapter affected the code]
-
+I tried to shorten my comments and applied a simple principle I learned about from the book `explain why, not what`. All my comments do not currently follow this and I still have some work to do on my comments i ngeneral but I can already see an improvement in my comments. In an ideal world the code would be more `self documented` but I need to keep some comments for now because they help with understanding the code better. Reducing unneccessary comments help with cohesion and clarity for anyone who reads the code. 
 
 **Code Example:**
-
+```js
+    /**
+   * Sets up UI event listeners for the component.
+   *
+   * Attaches a click event handler to the "Generate Word" button,
+   * which retrieves and displays a new random word each time it’s pressed.
+   *
+   * @private
+   * @returns {void}
+   */
+    #setupWordEvents () {
+      this.#generateWordButton.addEventListener('click', () => {
+        console.log('generate word')
+        const randomWord = this.#getRandomWord()
+        this.#displayWord.textContent = randomWord
+      })
+    }
+```
+The code shows comments are used only when necessary, explaining why rather than what. A method name like `#getRandomWord()` are self-explanatory, following the Clean Code principle of self-documenting code. Minimal comments reduce clutter while JSDoc clarifies intent and side effects for maintainability.
 
 ---
 
