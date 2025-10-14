@@ -59,4 +59,12 @@ customElements.define('word-generator',
       const randomIndex = Math.floor(Math.random() * this.#randomWords.length)
       return this.#randomWords[randomIndex]
     }
+
+    getCurrentWord () {
+
+    }
+
+    generateNewWord () {
+
+    }
   })

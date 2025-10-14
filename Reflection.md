@@ -173,10 +173,27 @@ In the code above I show an example of my code where I use the object and basica
 ---
 
 ## Chapter 7: Error Handling
-
-[4-6 sentences about how this chapter affected the code]
+I tried to apply `defensive programming` concepts for invalid or wrong inputs, such as empty names or not allowed player limits. My error handling is predictable, and does not silently fail. Following this principle makes debugging easier. For example, validation occurs before mutating state, which aligns with Clean Code’s recommendation to `return early and fail fast`. I also broke out the validations to its own method whereever possible.
 
 **Code Example:**
+```js
+    /**
+     * Validates player name.
+     *
+     * @private
+     * @param {string} playerName
+     * @returns {boolean}
+     */
+    #validatePlayerName (playerName) {
+      if (!playerName) return false
+      if (this.#currentPlayers.length >= 4) {
+        console.log('Max 4 players allowed')
+        return false
+      }
+      return true
+    }
+```
+Here we see an example of me using a `validation method` to validate the player name. I then call for this method in my `  #handlePlayerNameSubmission ()` method instead of putting the validation itself in the submission method.
 
 ---
 
@@ -199,8 +216,7 @@ In the code above I show an example of my code where I use the object and basica
 ---
 
 ## Chapter 10: Classes
-
-[4-6 sentences about how this chapter affected the code]
+The class design principles guided how I structured `PlayerManager` and `WordGenerator`. Each class has a `single responsibility` and exposes a minimal public API while hiding implementation details. This ensures `high cohesion and encapsulation, reduces side effects`, and makes it easier for other developers to extend functionality without breaking existing behavior. `Private properties` (#) are used to reinforce these boundaries.
 
 **Code Example:**
 

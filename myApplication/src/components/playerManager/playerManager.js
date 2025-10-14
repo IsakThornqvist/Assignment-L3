@@ -170,5 +170,16 @@ customElements.define('player-manager',
         this.#showPlayerList()
       }
     }
+
+    getCurrentPlayers () {
+
+    }
+
+    resetScores () {
+
+    }
+
+    setCurrentPlayer () {
+    }
   }
 )
