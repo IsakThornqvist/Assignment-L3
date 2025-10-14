@@ -78,12 +78,22 @@ This reflection document examines how the principles from Robert C. Martin's "Cl
 ---
 
 ## Chapter 2: Meaningful Names
-
-[4-6 sentences about how this chapter affected the code]
-
+Chapter 2 is all about `meaningful names` and this is something that has had a big influnce in how I name my methods, variables etc. An axample of this in my code is the `#increasePlayerScore` method, at first I named the method `#increaseScore` but then I remembered that with just adding the small word of **player** in the method name the goes from being fairly good to  being really good and meaningful. Another good practise is to try to communicate the indent clearly so from only reading the method names you should be able to get a good understanding of what is going on and what responsibilities the method has. Overall enforcing this on my code made it easier to maintain because if something went wrong I sort of knew where to look.
 
 
 **Code Example:**
+
+```js
+#handlePlayerNameSubmission() {
+  const playerName = this.#playerNameInput.value.trim()
+  if (!this.#validatePlayerName(playerName)) return
+
+  this.#addPlayerToList(playerName)
+  this.#playerNameInput.value = ''
+  this.#showPlayerList()
+}
+```
+The code above handles the `name submission` of the players and shows the list of the current players through the `  this.#showPlayerList()` call.
 
 
 

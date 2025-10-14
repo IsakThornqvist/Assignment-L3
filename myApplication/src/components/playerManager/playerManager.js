@@ -23,11 +23,11 @@ customElements.define('player-manager',
     }
 
     connectedCallback () {
-      this.addPlayer()
+      this.#addPlayer()
       this.#showPlayerList()
     }
 
-    addPlayer () {
+    #addPlayer () {
       this.#playerNameInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
           this.#handlePlayerNameSubmission()
@@ -56,7 +56,7 @@ customElements.define('player-manager',
     }
 
     #addPlayerToList (playerName) {
-      this.#currentPlayers.push({ name: playerName, score: 0})
+      this.#currentPlayers.push({ name: playerName, score: 0 })
       console.log(`currentplayers ${this.#currentPlayers}`)
     }
 
@@ -73,14 +73,14 @@ customElements.define('player-manager',
 
         const increaseScoreButton = document.createElement('button')
         increaseScoreButton.textContent = '+'
-        increaseScoreButton.addEventListener('click', () => 
+        increaseScoreButton.addEventListener('click', () =>
           this.#increasePlayerScore(index))
         li.appendChild(increaseScoreButton)
 
         const decreaseScoreButton = document.createElement('button')
         decreaseScoreButton.textContent = '-'
-        decreaseScoreButton.addEventListener('click', () => 
-          this.#increasePlayerScore(index))
+        decreaseScoreButton.addEventListener('click', () =>
+          this.#decreasePlayerScore(index))
         li.appendChild(decreaseScoreButton)
 
         li.dataset.index = index
@@ -93,8 +93,24 @@ customElements.define('player-manager',
       this.#showPlayerList()
     }
 
-    #increasePlayerScore () {
+    #increasePlayerScore (index) {
+      const currentPlayer = this.#currentPlayers[index]
+      if (currentPlayer.score >= 8) {
+        console.log('Score cannot go higer than 8')
+      } else {
+        currentPlayer.score = currentPlayer.score + 1
+        this.#showPlayerList()
+      }
+    }
 
+    #decreasePlayerScore (index) {
+      const currentPlayer = this.#currentPlayers[index]
+      if (currentPlayer.score < 1) {
+        console.log('Score cant be lower than 0')
+      } else {
+        currentPlayer.score = currentPlayer.score - 1
+        this.#showPlayerList()
+      }
     }
   }
 )
