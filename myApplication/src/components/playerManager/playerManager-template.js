@@ -8,10 +8,6 @@ template.innerHTML = `
     <input id='playerInputField'> </input>
     </div>
 
-    <div id='playerControls'> 
-        <button id='removePlayerButton'> Remove Player </button>
-        <button id='increaseScoreButton'> Increasee Score</button>
-    </div>
 
 
     <ul id='playerList'>

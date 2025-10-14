@@ -65,16 +65,35 @@ customElements.define('player-manager',
       this.#currentPlayers.forEach((player, index) => {
         const li = document.createElement('li')
         li.textContent = `${player.name} SCORE: ${player.score}`
+
+        const removePlayerButton = document.createElement('button')
+        removePlayerButton.textContent = 'remove'
+        removePlayerButton.addEventListener('click', () => this.#removePlayer(index))
+        li.appendChild(removePlayerButton)
+
+        const increaseScoreButton = document.createElement('button')
+        increaseScoreButton.textContent = '+'
+        increaseScoreButton.addEventListener('click', () => 
+          this.#increasePlayerScore(index))
+        li.appendChild(increaseScoreButton)
+
+        const decreaseScoreButton = document.createElement('button')
+        decreaseScoreButton.textContent = '-'
+        decreaseScoreButton.addEventListener('click', () => 
+          this.#increasePlayerScore(index))
+        li.appendChild(decreaseScoreButton)
+
         li.dataset.index = index
         this.#playerList.appendChild(li)
       })
     }
 
-    removePlayer () {
-
+    #removePlayer (index) {
+      this.#currentPlayers.splice(index, 1)
+      this.#showPlayerList()
     }
 
-    getAllPlayers () {
+    #increasePlayerScore () {
 
     }
   }
