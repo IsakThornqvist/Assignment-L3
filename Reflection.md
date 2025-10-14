@@ -142,12 +142,21 @@ The code shows comments are used only when necessary, explaining why rather than
 ---
 
 ## Chapter 5: Formatting
-
-[4-6 sentences about how this chapter affected the code]
-
+During development I consistently applied formatting best preactices to improve readability of the code. This includes `indentation, spacing, and grouping related operations visually`. Blank lines is used between logical sections to highlight separation of concerns. You may think formatting is just cosmetic, but it actually communicates levels of abstraction and guides the reader and his eyes through the logic of the application. I also used a `linter` which helped enforce consistency in the formatting of the code.
 
 **Code Example:**
-
+```js
+    #decreasePlayerScore (index) {
+      const currentPlayer = this.#currentPlayers[index]
+      if (currentPlayer.score < 1) {
+        console.log('Score cant be lower than 0')
+      } else {
+        currentPlayer.score = currentPlayer.score - 1
+        this.#showPlayerList()
+      }
+    }
+```
+In this code I tried to `indent` the code to make it as easy as possible to read, the `linter` helps me with the indentaion and foramtion of the code.
 
 ---
 
