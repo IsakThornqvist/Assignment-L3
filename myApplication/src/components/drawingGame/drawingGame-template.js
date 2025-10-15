@@ -8,6 +8,9 @@ template.innerHTML = `
 <word-generator class='hidden' id='word-generator'> </word-generator>
 <my-board class='hidden' id='my-board'> </my-board>
 
+<button id='nextRoundButton'> Next Player </button>
+<button id='backTStartScreenButton'> Back To Main Menu </button>
+
 </div>
 <style>
 
