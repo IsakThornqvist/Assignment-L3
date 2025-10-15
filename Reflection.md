@@ -5,6 +5,16 @@ The implementation of the wordGenerator was quite simple, I tried to follow the 
 
 The **playerManager** is more complex than the wordGenerator, I started out with making the template for the component and set it all up so that the element was visible in the browser. I decided that you can play with up to 4 players and I handled the players in this way. Firstly I created a private empty array called **#currentPlayers** that I use to thore the current players. As I mentioned the array only allows 4 players to be added. Then I created a ul list which will be used to display these names and the scores next to them and so on. I also added in the ability to remove a player aswell as the ability to be able to increase the score of a player manually.
 
+After setting up the individual components, I decided to create a drawingGame component to bring everything together. This made the old GameController unnecessary, since now the game logic could live directly inside this one element. I used the shadow DOM to encapsulate everything and imported the playerManager, wordGenerator, startScreen, and the canvas board. Having all the elements inside the same component made it much easier to manage the game flow and keep things organized and I am also more familiar with this way of working.
+
+One tricky part was getting the board to initialize correctly. Since it is a custom element, I had to make sure its methods like setCanvasSize and setPenColor were ready when I called them. To handle this, I used a small setTimeout to delay the setup slightly, which made everything work reliably.
+
+I also added the start screen functionality, so that the start screen hides and the board and word generator show when the game begins. I created private methods like #setupStartGameEvent and #handleStartGame to manage this transition cleanly. I also left placeholders for ending the game and going back to the start screen, knowing I can fill those in later when the round and scoring logic is ready.
+
+Overall, moving the game logic into drawingGame.js felt like a big step forward. It made communication between components simpler, kept the code more modular, and let me really take advantage of private fields and methods to keep things encapsulated. I feel like this approach will make it easier to expand the game later without things getting messy.
+
+
+
 # Notes to self - Workflow
 1. Get new sections to show up in interface
 2. Word generator component
