@@ -92,7 +92,8 @@ customElements.define('player-manager',
      */
     #addPlayerToList (playerName) {
       this.#currentPlayers.push({ name: playerName, score: 0 })
-      console.log(`currentplayers ${this.#currentPlayers}`)
+
+      this.dispatchEvent(new CustomEvent('playersChanged'))
     }
 
     /**
@@ -137,6 +138,8 @@ customElements.define('player-manager',
     #removePlayer (index) {
       this.#currentPlayers.splice(index, 1)
       this.#showPlayerList()
+
+      this.dispatchEvent(new CustomEvent('playersChanged'))
     }
 
     /**
@@ -152,6 +155,7 @@ customElements.define('player-manager',
       } else {
         currentPlayer.score = currentPlayer.score + 1
         this.#showPlayerList()
+        this.dispatchEvent(new CustomEvent('scoreChanged'))
       }
     }
 
@@ -168,11 +172,12 @@ customElements.define('player-manager',
       } else {
         currentPlayer.score = currentPlayer.score - 1
         this.#showPlayerList()
+        this.dispatchEvent(new CustomEvent('scoreChanged'))
       }
     }
 
     getCurrentPlayers () {
-
+      return this.#currentPlayers
     }
 
     resetScores () {
