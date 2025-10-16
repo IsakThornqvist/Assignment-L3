@@ -13,7 +13,7 @@ customElements.define('drawing-game',
     #roundNumber
     #winScore = 4
     #mainMenuButton
-    #currentDrawer
+    #currentDrawerDisplay
     #displayRound
 
     constructor () {
@@ -26,8 +26,8 @@ customElements.define('drawing-game',
       this.#board = this.shadowRoot.querySelector('#my-board')
       this.#startScreen = this.shadowRoot.querySelector('#start-screen')
       this.#mainMenuButton = this.shadowRoot.querySelector('#backToStartScreenButton')
-      this.#currentDrawer = this.shadowRoot.querySelector('#displayRound')
-      this.#displayRound = this.shadowRoot.querySelector('#currentDrawer')
+      this.#currentDrawerDisplay = this.shadowRoot.querySelector('#currentDrawer')
+      this.#displayRound = this.shadowRoot.querySelector('#displayRound')
     }
 
     connectedCallback () {
@@ -63,6 +63,8 @@ customElements.define('drawing-game',
       this.#board.classList.remove('hidden')
       this.#wordGenerator.classList.remove('hidden')
       this.#startScreen.classList.add('hidden')
+
+      this.#wordGenerator.showNewRandomWord()
     }
 
     #handleEndGame () {

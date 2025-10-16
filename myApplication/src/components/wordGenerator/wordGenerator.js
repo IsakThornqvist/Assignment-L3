@@ -60,6 +60,11 @@ customElements.define('word-generator',
       return this.#randomWords[randomIndex]
     }
 
+    showNewRandomWord () {
+      const randomWord = this.#getRandomWord()
+      this.#displayWord.textContent = randomWord
+    }
+
     getCurrentWord () {
 
     }
