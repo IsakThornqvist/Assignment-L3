@@ -13,7 +13,6 @@ customElements.define('start-screen',
     #startScreenText
     #startGameButton
 
-
     /**
      * Sets up the player-manager, shadow DOM, and grabs all the needed elements.
      */

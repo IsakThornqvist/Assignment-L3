@@ -5,6 +5,14 @@ import '../wordGenerator/index.js'
 import { template } from './drawingGame-template.js'
 
 customElements.define('drawing-game',
+
+  /**
+ * Main drawing game element. Handles game flow, player turns, rounds,
+ * word generation, and the drawing board.
+ *
+ * @class
+ * @extends {HTMLElement}
+ */
   class extends HTMLElement {
     #wordGenerator
     #playerManager
@@ -17,6 +25,9 @@ customElements.define('drawing-game',
     #currentPlayerIndex
     #roundNumber
 
+    /**
+     * Sets up shadow DOM and caches references to child components and UI elements.
+     */
     constructor () {
       super()
 
@@ -31,6 +42,9 @@ customElements.define('drawing-game',
       this.#displayRound = this.shadowRoot.querySelector('#displayRound')
     }
 
+    /**
+     * Called when the element is added to the DOM. Sets up event listeners and canvas.
+     */
     connectedCallback () {
       setTimeout(() => this.#canvasConfig(), 0)
       this.#setupStartGameEvent()
@@ -38,6 +52,11 @@ customElements.define('drawing-game',
       this.#setupNextRoundButton()
     }
 
+    /**
+     * Configures the drawing board canvas, colors, and pen sizes.
+     *
+     * @private
+     */
     #canvasConfig () {
       this.#board.setCanvasSize(500, 500)
 
@@ -48,19 +67,29 @@ customElements.define('drawing-game',
       )
 
       this.#board.setCanvasColor(
-        'white', 'black', 'grey', 'green', 'blue', 
+        'white', 'black', 'grey', 'green', 'blue',
         'red', 'yellow', 'limegreen'
       )
 
       this.#board.setPenSize(3, 6, 10)
     }
 
+    /**
+     * Sets up the event listener for starting the game.
+     *
+     * @private
+     */
     #setupStartGameEvent () {
       this.#startScreen.addEventListener('startGame', () => {
         this.#handleStartGame()
       })
     }
 
+    /**
+     * Initializes game state when the game starts.
+     *
+     * @private
+     */
     #handleStartGame () {
       const players = this.#playerManager.getCurrentPlayers()
       if (players.length < 2) {
@@ -80,12 +109,22 @@ customElements.define('drawing-game',
       this.#board.clearCanvas()
     }
 
+    /**
+     * Sets up the back-to-main-menu button.
+     *
+     * @private
+     */
     #setupBackToMainMenuEvent () {
       this.#mainMenuButton.addEventListener('click', () => {
         this.#handleBackToStartScreen()
       })
     }
 
+    /**
+     * Handles returning to the main menu and resetting UI.
+     *
+     * @private
+     */
     #handleBackToStartScreen () {
       this.#board.classList.add('hidden')
       this.#wordGenerator.classList.add('hidden')
@@ -93,17 +132,32 @@ customElements.define('drawing-game',
       this.#board.clearCanvas()
     }
 
+    /**
+     * Sets up the next-round button to advance the turn.
+     *
+     * @private
+     */
     #setupNextRoundButton () {
       const nextRoundButton = this.shadowRoot.querySelector('#nextRoundButton')
       nextRoundButton.addEventListener('click', () => this.#nextTurn())
     }
 
+    /**
+     * Updates the UI for the current round and current player.
+     *
+     * @private
+     */
     #updateRoundUI () {
       const players = this.#playerManager.getCurrentPlayers()
       this.#displayRound.textContent = `Round: ${this.#roundNumber}`
       this.#currentDrawerDisplay.textContent = players[this.#currentPlayerIndex].name
     }
 
+    /**
+     * Advances to the next player's turn, updates round number, board, and word.
+     *
+     * @private
+     */
     #nextTurn () {
       const players = this.#playerManager.getCurrentPlayers()
       if (!players.length) return

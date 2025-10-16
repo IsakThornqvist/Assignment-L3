@@ -60,16 +60,14 @@ customElements.define('word-generator',
       return this.#randomWords[randomIndex]
     }
 
+    /**
+ * Generates a new random word from the word list and displays it
+ * in the word generator UI.
+ *
+ * @returns {void}
+ */
     showNewRandomWord () {
       const randomWord = this.#getRandomWord()
       this.#displayWord.textContent = randomWord
-    }
-
-    getCurrentWord () {
-
-    }
-
-    generateNewWord () {
-
     }
   })

@@ -176,15 +176,13 @@ customElements.define('player-manager',
       }
     }
 
+    /**
+ * Returns the current list of players with their scores.
+ *
+ * @returns {Array<{name: string, score: number}>} Array of player objects.
+ */
     getCurrentPlayers () {
       return this.#currentPlayers
-    }
-
-    resetScores () {
-
-    }
-
-    setCurrentPlayer () {
     }
   }
 )
