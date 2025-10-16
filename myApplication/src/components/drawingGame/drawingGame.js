@@ -129,6 +129,8 @@ customElements.define('drawing-game',
       this.#board.classList.add('hidden')
       this.#wordGenerator.classList.add('hidden')
       this.#startScreen.classList.remove('hidden')
+      this.#displayRound.textContent = ''
+      this.#currentDrawerDisplay.textContent = ''
       this.#board.clearCanvas()
     }
 
