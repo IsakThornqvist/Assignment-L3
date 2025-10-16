@@ -9,7 +9,6 @@ customElements.define('player-manager',
  * @extends {HTMLElement}
  */
   class extends HTMLElement {
-    #addNewPlayerButton
     #playerNameInput
     #removePlayerButton
     #increaseScoreButton
@@ -24,7 +23,6 @@ customElements.define('player-manager',
 
       this.attachShadow({ mode: 'open' })
       this.shadowRoot.appendChild(template.content.cloneNode(true))
-      this.#addNewPlayerButton = this.shadowRoot.querySelector('#addNewPlayerButton')
       this.#playerNameInput = this.shadowRoot.querySelector('#playerInputField')
       this.#removePlayerButton = this.shadowRoot.querySelector('#removePlayerButton')
       this.#increaseScoreButton = this.shadowRoot.querySelector('#increaseScoreButton')
@@ -50,8 +48,6 @@ customElements.define('player-manager',
           this.#handlePlayerNameSubmission()
         }
       })
-
-      this.#addNewPlayerButton.addEventListener('click', () => this.#handlePlayerNameSubmission())
     }
 
     /**
