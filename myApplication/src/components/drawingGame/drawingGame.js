@@ -10,11 +10,12 @@ customElements.define('drawing-game',
     #playerManager
     #board
     #startScreen
-    #roundNumber
     #winScore = 4
     #mainMenuButton
     #currentDrawerDisplay
     #displayRound
+    #currentPlayerIndex
+    #roundNumber
 
     constructor () {
       super()
@@ -31,18 +32,25 @@ customElements.define('drawing-game',
     }
 
     connectedCallback () {
-      console.log('quiz game added')
       setTimeout(() => this.#canvasConfig(), 0)
       this.#setupStartGameEvent()
       this.#setupBackToMainMenuEvent()
+      this.#setupNextRoundButton()
     }
 
     #canvasConfig () {
       this.#board.setCanvasSize(500, 500)
 
-      this.#board.setPenColor('black', 'white', 'violet', 'yellow', 'lime', 'green', 'blue', 'blueviolet', 'brown', 'grey', 'orange', 'red')
+      this.#board.setPenColor(
+        'black', 'white', 'violet', 'yellow', 'lime',
+        'green', 'blue', 'blueviolet', 'brown', 'grey',
+        'orange', 'red'
+      )
 
-      this.#board.setCanvasColor('white', 'black', 'grey', 'green', 'blue', 'red', 'yellow', 'limegreen')
+      this.#board.setCanvasColor(
+        'white', 'black', 'grey', 'green', 'blue', 
+        'red', 'yellow', 'limegreen'
+      )
 
       this.#board.setPenSize(3, 6, 10)
     }
@@ -56,7 +64,7 @@ customElements.define('drawing-game',
     #handleStartGame () {
       const players = this.#playerManager.getCurrentPlayers()
       if (players.length < 2) {
-        alert('Atleast 2 players is needed to start the game!')
+        alert('At least 2 players are needed to start the game!')
         return
       }
 
@@ -64,11 +72,12 @@ customElements.define('drawing-game',
       this.#wordGenerator.classList.remove('hidden')
       this.#startScreen.classList.add('hidden')
 
+      this.#currentPlayerIndex = 0
+      this.#roundNumber = 1
+      this.#updateRoundUI()
+
       this.#wordGenerator.showNewRandomWord()
-    }
-
-    #handleEndGame () {
-
+      this.#board.clearCanvas()
     }
 
     #setupBackToMainMenuEvent () {
@@ -81,6 +90,32 @@ customElements.define('drawing-game',
       this.#board.classList.add('hidden')
       this.#wordGenerator.classList.add('hidden')
       this.#startScreen.classList.remove('hidden')
+      this.#board.clearCanvas()
+    }
+
+    #setupNextRoundButton () {
+      const nextRoundButton = this.shadowRoot.querySelector('#nextRoundButton')
+      nextRoundButton.addEventListener('click', () => this.#nextTurn())
+    }
+
+    #updateRoundUI () {
+      const players = this.#playerManager.getCurrentPlayers()
+      this.#displayRound.textContent = `Round: ${this.#roundNumber}`
+      this.#currentDrawerDisplay.textContent = players[this.#currentPlayerIndex].name
+    }
+
+    #nextTurn () {
+      const players = this.#playerManager.getCurrentPlayers()
+      if (!players.length) return
+
+      this.#currentPlayerIndex = (this.#currentPlayerIndex + 1) % players.length
+
+      if (this.#currentPlayerIndex === 0) {
+        this.#roundNumber++
+      }
+
+      this.#updateRoundUI()
+      this.#wordGenerator.showNewRandomWord()
       this.#board.clearCanvas()
     }
   }
