@@ -13,6 +13,8 @@ customElements.define('drawing-game',
     #roundNumber
     #winScore = 4
     #mainMenuButton
+    #currentDrawer
+    #displayRound
 
     constructor () {
       super()
@@ -24,6 +26,8 @@ customElements.define('drawing-game',
       this.#board = this.shadowRoot.querySelector('#my-board')
       this.#startScreen = this.shadowRoot.querySelector('#start-screen')
       this.#mainMenuButton = this.shadowRoot.querySelector('#backToStartScreenButton')
+      this.#currentDrawer = this.shadowRoot.querySelector('#displayRound')
+      this.#displayRound = this.shadowRoot.querySelector('#currentDrawer')
     }
 
     connectedCallback () {

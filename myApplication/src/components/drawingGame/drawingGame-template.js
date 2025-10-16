@@ -11,6 +11,12 @@ template.innerHTML = `
 <button id='nextRoundButton'> Next Player </button>
 <button id='backToStartScreenButton'> Back To Main Menu </button>
 
+<div id='gameInfo'>
+    <p id='displayRound'></p>
+    <p id='currentDrawer'></p>
+    
+
+</div>
 </div>
 <style>
 
