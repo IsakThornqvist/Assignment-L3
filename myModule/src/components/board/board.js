@@ -226,6 +226,11 @@ customElements.define('my-board',
       }
     }
 
+    clearCanvas () {
+      const canvasContext = this.#canvas.getContext('2d')
+      canvasContext.clearRect(0, 0, this.#canvas.width, this.#canvas.height)
+    }
+
     /**
      * Set the pen color buttons and their data-color attribute from code.
      *

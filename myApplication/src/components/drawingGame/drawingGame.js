@@ -12,6 +12,7 @@ customElements.define('drawing-game',
     #startScreen
     #roundNumber
     #winScore = 4
+    #mainMenuButton
 
     constructor () {
       super()
@@ -22,12 +23,14 @@ customElements.define('drawing-game',
       this.#playerManager = this.shadowRoot.querySelector('#player-manager')
       this.#board = this.shadowRoot.querySelector('#my-board')
       this.#startScreen = this.shadowRoot.querySelector('#start-screen')
+      this.#mainMenuButton = this.shadowRoot.querySelector('#backToStartScreenButton')
     }
 
     connectedCallback () {
       console.log('quiz game added')
       setTimeout(() => this.#canvasConfig(), 0)
       this.#setupStartGameEvent()
+      this.#setupBackToMainMenuEvent()
     }
 
     #canvasConfig () {
@@ -47,6 +50,12 @@ customElements.define('drawing-game',
     }
 
     #handleStartGame () {
+      const players = this.#playerManager.getCurrentPlayers()
+      if (players.length < 2) {
+        alert('Atleast 2 players is needed to start the game!')
+        return
+      }
+
       this.#board.classList.remove('hidden')
       this.#wordGenerator.classList.remove('hidden')
       this.#startScreen.classList.add('hidden')
@@ -56,8 +65,17 @@ customElements.define('drawing-game',
 
     }
 
-    #handleBackToStartScreen () {
+    #setupBackToMainMenuEvent () {
+      this.#mainMenuButton.addEventListener('click', () => {
+        this.#handleBackToStartScreen()
+      })
+    }
 
+    #handleBackToStartScreen () {
+      this.#board.classList.add('hidden')
+      this.#wordGenerator.classList.add('hidden')
+      this.#startScreen.classList.remove('hidden')
+      this.#board.clearCanvas()
     }
   }
 )
