@@ -208,10 +208,28 @@ Here we see an example of me using a `validation method` to validate the player 
 ---
 
 ## Chapter 8: Boundaries
-
-[4-6 sentences about how this chapter affected the code]
+Chapter 8 discusses managing boundaries between modules, libraries, and external systems. In my project, I applied this principle by keeping the canvas board module `independent` from the game logic. For example, the drawing functionality (L2) does not know anything about players or rounds, it only exposes a clear API for actions like `setPenColor(), clearCanvas(), and setCanvasSize()`. The game logic (L3) then interacts with this module through those defined boundaries, not by directly manipulating its internal state.
+This separation made it easier to reuse and test components independently, and it reflects the Clean Code recommendation of `"protecting boundaries"` through okay defined interfaces.
 
 **Code Example:**
+```js
+    #canvasConfig () {
+      this.#board.setCanvasSize(700, 500)
+
+      this.#board.setPenColor(
+        'black', 'white', 'violet', 'yellow', 'lime',
+        'green', 'blue', 'blueviolet', 'brown', 'grey',
+        'orange', 'red'
+      )
+
+      this.#board.setCanvasColor(
+        'white', 'black', 'grey', 'green', 'blue',
+        'red', 'yellow', 'limegreen'
+      )
+
+      this.#board.setPenSize(3, 6, 10)
+    }
+```
 
 
 ---
