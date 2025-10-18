@@ -3,19 +3,20 @@ export const template = document.createElement('template')
 template.innerHTML = `
 <div id='drawingGameContainer'>
   <start-screen id='start-screen'> </start-screen>
-  <my-board class='hidden' id='my-board'> </my-board>
-  <player-manager id='player-manager'> </player-manager>
-  <word-generator class='hidden' id='word-generator'> </word-generator>
-  
-  <div id='gameInfo'>
+  <my-board id="my-board" class='hidden'>
+  <word-generator slot="rightOfCanvas" id="word-generator"></word-generator>
+    <div id='gameInfo' slot='headerPanel'>
     <p id='displayRound'></p>
     <p id='currentDrawer'></p>
   </div>
-  
-  <div id='gameControls'>
+    <div id='gameControls' slot='headerPanel'>
     <button id='nextRoundButton'> Next Player </button>
     <button id='backToStartScreenButton'> Back To Main Menu </button>
   </div>
+</my-board>
+  <player-manager id='player-manager'> </player-manager>
+  <word-generator class='hidden' id='word-generator'> </word-generator>
+  
 </div>
 
 <style>

@@ -58,7 +58,7 @@ customElements.define('drawing-game',
      * @private
      */
     #canvasConfig () {
-      this.#board.setCanvasSize(500, 500)
+      this.#board.setCanvasSize(700, 500)
 
       this.#board.setPenColor(
         'black', 'white', 'violet', 'yellow', 'lime',
@@ -100,6 +100,7 @@ customElements.define('drawing-game',
       this.#board.classList.remove('hidden')
       this.#wordGenerator.classList.remove('hidden')
       this.#startScreen.classList.add('hidden')
+      this.#playerManager.onlyShowPlayerList()
 
       this.#currentPlayerIndex = 0
       this.#roundNumber = 1
@@ -129,6 +130,7 @@ customElements.define('drawing-game',
       this.#board.classList.add('hidden')
       this.#wordGenerator.classList.add('hidden')
       this.#startScreen.classList.remove('hidden')
+      this.#playerManager.onlyShowPlayerList()
       this.#displayRound.textContent = ''
       this.#currentDrawerDisplay.textContent = ''
       this.#board.clearCanvas()

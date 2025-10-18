@@ -2,8 +2,8 @@ export const template = document.createElement('template')
 
 template.innerHTML = `
   <div id="wordGeneratorContainer"> 
-    <h2>Word Generator</h2>
-    <button id="generateWordButton">Generate Word</button>
+    <h2>Current Word</h2>
+    <button id="generateWordButton">New Word</button>
     <div id='wordDiv'>
     <p id="displayWord"></p>
     </div>
@@ -19,7 +19,7 @@ template.innerHTML = `
       border: 2px solid #ddd;
       border-radius: 12px;
       padding: 20px;
-      width: 250px;
+      max-width: 250px;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: box-shadow 0.3s ease;

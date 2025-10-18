@@ -2,7 +2,8 @@ export const template = document.createElement('template')
 
 template.innerHTML = `
   <div id="playerManagerContainer"> 
-    <h2>Player Manager</h2>
+    <h2 id='playerManagerHeader'>Add Players!</h2>
+    <h2 id='scoreHeader' class='hidden'>Leaderboard</h2>
     <div id='playerInputContainer'>
     <input id='playerInputField' placeholder="Input Player Names"> </input>
     </div>
@@ -25,12 +26,16 @@ template.innerHTML = `
       padding: 0;
     }
 
+    .hidden {
+      display: none;
+    }
+
     #playerManagerContainer {
       background: white;
       border-radius: 16px;
       padding: 25px;
       width: 100%;
-      max-width: 600px;
+      max-width: 400px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }

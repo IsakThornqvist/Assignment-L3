@@ -13,6 +13,8 @@ customElements.define('player-manager',
     #removePlayerButton
     #increaseScoreButton
     #playerList
+    #playerManagerHeader
+    #scoreHeader
     #currentPlayers = []
 
     /**
@@ -27,6 +29,8 @@ customElements.define('player-manager',
       this.#removePlayerButton = this.shadowRoot.querySelector('#removePlayerButton')
       this.#increaseScoreButton = this.shadowRoot.querySelector('#increaseScoreButton')
       this.#playerList = this.shadowRoot.querySelector('#playerList')
+      this.#playerManagerHeader = this.shadowRoot.querySelector('#playerManagerHeader')
+      this.#scoreHeader = this.shadowRoot.querySelector('#scoreHeader')
     }
 
     /**
@@ -136,6 +140,12 @@ customElements.define('player-manager',
       this.#showPlayerList()
 
       this.dispatchEvent(new CustomEvent('playersChanged'))
+    }
+
+    onlyShowPlayerList () {
+      this.#playerNameInput.classList.toggle('hidden')
+      this.#playerManagerHeader.classList.toggle('hidden')
+      this.#scoreHeader.classList.toggle('hidden')
     }
 
     /**

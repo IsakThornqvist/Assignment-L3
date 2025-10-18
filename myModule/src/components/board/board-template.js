@@ -4,6 +4,7 @@ template.innerHTML = `
 <div id='boardContainer'>
     <div id='header'>
         <h1>The Board</h1>
+        <slot name="headerPanel"></slot>
         <button id='clearCanvasButton'>Clear Canvas</button>
     </div>
 
@@ -56,6 +57,9 @@ template.innerHTML = `
             <label>Height</label>
             <input id='heightInput' type='number' placeholder='500'>
             <button id='heightButton'>Set</button>
+
+            <slot name="rightOfCanvas"></slot>
+            <slot name="rightOfCanvasTwo"></slot>
 
             <label>Canvas Color</label>
             <div id='canvasColorPicker'>
