@@ -144,19 +144,19 @@ template.innerHTML = `
     }
 
     #playerList button:nth-of-type(2) {
-      background: #51cf66;
-    }
-
-    #playerList button:nth-of-type(2):hover {
-      background: #40c057;
-    }
-
-    #playerList button:nth-of-type(3) {
       background: #ffa94d;
     }
 
+    #playerList button:nth-of-type(2):hover {
+       background: #ff922b;
+    }
+
+    #playerList button:nth-of-type(3) {
+      background: #51cf66
+    }
+
     #playerList button:nth-of-type(3):hover {
-      background: #ff922b;
+      background: #40c057;
     }
   </style>
 `

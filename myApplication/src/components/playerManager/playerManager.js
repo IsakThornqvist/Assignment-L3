@@ -117,17 +117,17 @@ customElements.define('player-manager',
         removePlayerButton.addEventListener('click', () => this.#removePlayer(index))
         li.appendChild(removePlayerButton)
 
-        const increaseScoreButton = document.createElement('button')
-        increaseScoreButton.textContent = '+'
-        increaseScoreButton.addEventListener('click', () =>
-          this.#increasePlayerScore(index))
-        li.appendChild(increaseScoreButton)
-
         const decreaseScoreButton = document.createElement('button')
         decreaseScoreButton.textContent = '-'
         decreaseScoreButton.addEventListener('click', () =>
           this.#decreasePlayerScore(index))
         li.appendChild(decreaseScoreButton)
+
+        const increaseScoreButton = document.createElement('button')
+        increaseScoreButton.textContent = '+'
+        increaseScoreButton.addEventListener('click', () =>
+          this.#increasePlayerScore(index))
+        li.appendChild(increaseScoreButton)
 
         li.dataset.index = index
         this.#playerList.appendChild(li)

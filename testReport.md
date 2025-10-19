@@ -161,7 +161,7 @@
 3. Over the drawing area (canvas) click the next player button two times
 
 **Expected Results:**  
-1. Round counter increases by 1.  
+1. Round counter increases to 2.  
 
 ---
 
@@ -176,7 +176,7 @@
 4. Now click the red back to main menu button. 
 
 **Expected Results:**  
-1. All scores reset to 0. 
+1. All scores reset to 0 once back to main menu button is clicked. 
 
 ---
 
@@ -232,10 +232,7 @@
 
 ## ✅ What Has Been Tested
 
-The **Guess the Drawing** application was tested through both **unit tests** (verifying logic and component structure) and **manual tests** (validating real user interactions).  
-
-### Unit Tests  
-Unit tests (**TC1–TC2** originally) confirmed that components like `playerManager` and core logic behaved correctly in isolation before integrating them into the full UI.  
+The **Guess the Drawing** application was tested through **manual tests** (validating real user interactions).    
 
 ### Manual Tests  
 Manual tests (**TC1–TC14**) focused on **functional and non-functional requirements**, validating that gameplay, UI, and performance aligned with the requirements document.  
