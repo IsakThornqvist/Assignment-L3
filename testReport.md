@@ -30,10 +30,11 @@
 2. Type in the name Bob  
 3. Press Enter
 4. Now enter Karl into the field and press enter 
+
 **Expected Results:**  
-- A new player with name "Bob" appears in the player list.  
-- A new player with name "Karl" appears in the player list.  
-- The player’s initial score is `0`.  
+1. A new player with name "Bob" appears in the player list.  
+2. A new player with name "Karl" appears in the player list.  
+3. The player’s initial score is `0`.  
 
 ---
 
@@ -44,8 +45,9 @@
 **Test Steps:**  
 1. Add at least one player.  
 2. Click the **Remove** button beside their name.  
+
 **Expected Results:**  
-- Player is removed from both UI and internal data array.  
+1. Player is removed from both UI and internal data array.  
 
 ---
 
@@ -56,9 +58,10 @@
 **Test Steps:**  
 1. Add a player.  
 2. Click the **+** button beside the player’s name multiple times.  
+
 **Expected Results:**  
-- Player’s score increases each time (+1 per click).
-- Win meesage is shown once a player gets 4 points.  
+1. Player’s score increases each time (+1 per click).
+2. Win meesage is shown once a player gets 4 points.  
 
 ---
 
@@ -73,10 +76,11 @@
 4. Now enter Karl into the field and press enter 
 5. Now click the delete button next to Bob 
 6. Add a new player named Kalle
+
 **Expected Results:**  
-- Players should be added to the list
-- The remove button next to bob should remove bob from the lst
-- In the end you should have karl at the top of the list and kalle under karl in the list
+1. Players should be added to the list
+2. The remove button next to bob should remove bob from the lst
+3. In the end you should have karl at the top of the list and kalle under karl in the list
 
 ---
 
@@ -90,9 +94,10 @@
 3. Now the game is active and you can see the word generator to the right of the canvas
 4. Hover over the blurred word and make sure you can read it
 5. Click the back to main menu button
+
 **Expected Results:**
-- Random word is generated
-- Word appears and is hidden until you mouse over it
+1. Random word is generated
+2. Word appears and is hidden until you mouse over it
 
 
 ---
@@ -108,8 +113,9 @@
 4. Click on the pen and choose a color of your choice
 5. Draw a square on the canvas
 6. Now select the eraser under the pen and attempt to erase the square
+
 **Expected Results:**  
-- Pen and eraser both function correctly within the game interface.
+1. Pen and eraser both function correctly within the game interface.
 
 ---
 
@@ -124,8 +130,9 @@
 4. Click on the pen and choose a color of your choice
 5. Draw a square on the canvas
 6. Top right oif the canvas locate the clear canvas button and click it
+
 **Expected Results:**  
-- All drawings are erased immediately.  
+1. All drawings are erased immediately.  
 
 ---
 
@@ -137,9 +144,10 @@
 1. Add 2 players of your choice via the input field under the add players header
 2. Once two players are added click the start game button
 3. Over the drawing area (canvas) click the next player button
+
 **Expected Results:**  
-- The next player’s name is highlighted as current drawer.  
-- A new word is generated automatically.  
+1. The next player’s name is highlighted as current drawer.  
+2. A new word is generated automatically.  
 
 ---
 
@@ -151,8 +159,9 @@
 1. Add 2 players of your choice via the input field under the add players header
 2. Once two players are added click the start game button
 3. Over the drawing area (canvas) click the next player button two times
+
 **Expected Results:**  
-- Round counter increases by 1.  
+1. Round counter increases by 1.  
 
 ---
 
@@ -165,8 +174,9 @@
 2. Once two players are added click the start game button
 3. Increase Karls score by one via the "+" button next to his name
 4. Now click the red back to main menu button. 
+
 **Expected Results:**  
-- All scores reset to 0. 
+1. All scores reset to 0. 
 
 ---
 
@@ -177,9 +187,10 @@
 **Test Steps:**  
 1. Add four players.  
 2. Attempt to add a fifth.  
+
 **Expected Results:**  
-- Fifth player does **not** get added.  
-- Message popup shows “Max 4 players allowed.”  
+1. Fifth player does **not** get added.  
+2. Message popup shows “Max 4 players allowed.”  
 
 ---
 
@@ -188,9 +199,10 @@
 **Use Case:** Assess visual clarity.  
 **Scenario:** Check if UI is easy to navigate.  
 **Test Steps:**  
-1. Observe layout and controls.  
+1. Observe layout and controls. 
+
 **Expected Results:**  
-- Controls are intuitive and labeled clearly.  
+1. Controls are intuitive and labeled clearly.  
 
 ---
 
@@ -200,8 +212,9 @@
 **Scenario:** Word appears blurred and interactive.  
 **Test Steps:**  
 1. Look at the word display area.  
+
 **Expected Results:**  
-- Word looks blurred but changes on hover.  
+1. Word looks blurred but changes on hover.  
 
 ---
 
@@ -211,8 +224,9 @@
 **Scenario:** UI responds quickly.  
 **Test Steps:**  
 1. Click main buttons (Add Player, Next Round, Clear Canvas).  
+
 **Expected Results:**  
-- Response time <100ms per action.  
+1. Response time <100ms per action.  
 
 ---
 
