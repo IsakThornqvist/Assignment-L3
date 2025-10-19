@@ -109,6 +109,7 @@ customElements.define('player-manager',
 
         const removePlayerButton = document.createElement('button')
         removePlayerButton.textContent = 'remove'
+        removePlayerButton.classList.add('remove-button')
         removePlayerButton.addEventListener('click', () => this.#removePlayer(index))
         li.appendChild(removePlayerButton)
 
@@ -142,10 +143,15 @@ customElements.define('player-manager',
       this.dispatchEvent(new CustomEvent('playersChanged'))
     }
 
+    /**
+     * Toggles UI between add-player mode and leaderboard mode.
+     */
     onlyShowPlayerList () {
       this.#playerNameInput.classList.toggle('hidden')
       this.#playerManagerHeader.classList.toggle('hidden')
-      this.#scoreHeader.classList.toggle('hidden')
+      this.#scoreHeader.classList.toggle('hidden')      
+      const removeButtons = this.shadowRoot.querySelectorAll('.remove-button')
+      removeButtons.forEach(btn => btn.classList.toggle('hidden'))
     }
 
     /**

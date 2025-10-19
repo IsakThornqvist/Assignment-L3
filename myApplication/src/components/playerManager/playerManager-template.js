@@ -3,7 +3,7 @@ export const template = document.createElement('template')
 template.innerHTML = `
   <div id="playerManagerContainer"> 
     <h2 id='playerManagerHeader'>Add Players!</h2>
-    <h2 id='scoreHeader' class='hidden'>Leaderboard</h2>
+    <h2 id='scoreHeader' class='hidden'>Current Scores</h2>
     <div id='playerInputContainer'>
     <input id='playerInputField' placeholder="Input Player Names"> </input>
     </div>
