@@ -83,3 +83,12 @@ gif here
 - Eraser tool
 - Canvas size configuration
 - Clear canvas functionality
+
+
+### File Structure
+
+### Clean Code Principles
+
+### License
+
+### Acknowledgments
