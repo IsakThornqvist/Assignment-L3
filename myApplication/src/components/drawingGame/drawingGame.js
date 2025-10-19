@@ -18,7 +18,6 @@ customElements.define('drawing-game',
     #playerManager
     #board
     #startScreen
-    #winScore = 4
     #mainMenuButton
     #currentDrawerDisplay
     #displayRound
@@ -50,6 +49,7 @@ customElements.define('drawing-game',
       this.#setupStartGameEvent()
       this.#setupBackToMainMenuEvent()
       this.#setupNextRoundButton()
+      this.#setupWinnerListener()
     }
 
     /**
@@ -144,6 +144,29 @@ customElements.define('drawing-game',
     #setupNextRoundButton () {
       const nextRoundButton = this.shadowRoot.querySelector('#nextRoundButton')
       nextRoundButton.addEventListener('click', () => this.#nextTurn())
+    }
+
+    /**
+     * Sets up listener for when a player wins.
+     *
+     * @private
+     */
+    #setupWinnerListener () {
+      this.#playerManager.addEventListener('playerWon', (e) => {
+        this.#winnerAnnouncement(e.detail.playerName)
+      })
+    }
+
+    /**
+     * Handles winner announcement and game reset.
+     *
+     * @private
+     * @param {string} playerName
+     */
+    #winnerAnnouncement (playerName) {
+      alert(`🎉 ${playerName} is the winner! 🎉`)
+      this.#playerManager.resetScores()
+      this.#handleBackToStartScreen()
     }
 
     /**

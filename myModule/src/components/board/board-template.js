@@ -51,7 +51,7 @@ template.innerHTML = `
         <div id='heightWidthChangeContainer'>
             <h3>Canvas Size</h3>
             <label>Width</label>
-            <input id='widthInput' type='number' placeholder='500'>
+            <input id='widthInput' type='number' placeholder='700'>
             <button id='widthButton'>Set</button>
             
             <label>Height</label>

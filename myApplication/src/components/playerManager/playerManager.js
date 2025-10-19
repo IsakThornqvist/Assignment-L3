@@ -16,6 +16,7 @@ customElements.define('player-manager',
     #playerManagerHeader
     #scoreHeader
     #currentPlayers = []
+    #isGameMode = false
 
     /**
      * Sets up the player-manager, shadow DOM, and grabs all the needed elements.
@@ -110,6 +111,9 @@ customElements.define('player-manager',
         const removePlayerButton = document.createElement('button')
         removePlayerButton.textContent = 'remove'
         removePlayerButton.classList.add('remove-button')
+        if (this.#isGameMode) {
+          removePlayerButton.classList.add('hidden')
+        }
         removePlayerButton.addEventListener('click', () => this.#removePlayer(index))
         li.appendChild(removePlayerButton)
 
@@ -147,9 +151,10 @@ customElements.define('player-manager',
      * Toggles UI between add-player mode and leaderboard mode.
      */
     onlyShowPlayerList () {
+      this.#isGameMode = !this.#isGameMode
       this.#playerNameInput.classList.toggle('hidden')
       this.#playerManagerHeader.classList.toggle('hidden')
-      this.#scoreHeader.classList.toggle('hidden')      
+      this.#scoreHeader.classList.toggle('hidden')
       const removeButtons = this.shadowRoot.querySelectorAll('.remove-button')
       removeButtons.forEach(btn => btn.classList.toggle('hidden'))
     }
@@ -168,6 +173,12 @@ customElements.define('player-manager',
         currentPlayer.score = currentPlayer.score + 1
         this.#showPlayerList()
         this.dispatchEvent(new CustomEvent('scoreChanged'))
+
+        if (currentPlayer.score >= 4) {
+          this.dispatchEvent(new CustomEvent('playerWon', {
+            detail: { playerName: currentPlayer.name }
+          }))
+        }
       }
     }
 
@@ -195,6 +206,16 @@ customElements.define('player-manager',
  */
     getCurrentPlayers () {
       return this.#currentPlayers
+    }
+
+    /**
+     * Resets all player scores to 0.
+     */
+    resetScores () {
+      this.#currentPlayers.forEach(player => {
+        player.score = 0
+      })
+      this.#showPlayerList()
     }
   }
 )
