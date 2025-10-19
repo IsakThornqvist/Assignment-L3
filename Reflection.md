@@ -247,19 +247,46 @@ This separation made it easier to reuse and test components independently, and i
 The class design principles guided how I structured `PlayerManager` and `WordGenerator`. Each class has a `single responsibility` and exposes a minimal public API while hiding implementation details. This ensures `high cohesion and encapsulation, reduces side effects`, and makes it easier for other developers to extend functionality without breaking existing behavior. `Private properties` (#) are used to reinforce these boundaries.
 
 **Code Example:**
+```js
+class extends HTMLElement {
+  #playerNameInput
+  #playerList
+  #currentPlayers = []
+  #isGameMode = false
 
+  getCurrentPlayers () {
+    return this.#currentPlayers
+  }
+
+  resetScores () {
+    this.#currentPlayers.forEach(player => {
+      player.score = 0
+    })
+    this.#showPlayerList()
+  }
+}
+```
+The `playerManager`class uses private fields to hide internal state and only exposes necessary public methods like getCurrentPlayers() and resetScores(). This encapsulation ensures that other parts of the application can not accidentally corrupt or ruin the player data, following the principle of information `hiding`.
 
 ---
 
 ## Chapter 11: Systems
-
-[4-6 sentences about how this chapter affected the code]
+Chapter 11 focuses on building clean systems through separation of concerns, modularity, and clear startup processes. I applied this by treating my application as a composition of smaller subsystems/customElements: StartScreen, PlayerManager, WordGenerator, and Board. Each one can be developed and tested independently, and DrawingGame acts as the system coordinator that ties it all together.
+This modular system design allowed me to reason about the application at a higher level. When a bug occurred, I could usually trace it to a specific component without affecting the rest of the system. This also aligns with Clean Code’s idea that `emergent design` arises from good and well-organized modules and clean boundaries throughout the code.
 
 **Code Example:**
+```js
+#setupStartGameEvent() {
+  this.#startScreen.addEventListener('startGame', () => {
+    this.#handleStartGame()
+  })
+}
+```
 
 ---
 
 ## Conclusion
-
+Throughout this project, applying Clean Code principles has made a noticeable difference in how I structure and reason about code. The focus on meaningful names, small functions, and strong boundaries improved readability and maintainability. While my code is not perfect, it is far cleaner, easier to debug, and more modular than before.
+The process also taught me to think more about why I write code in certain ways, not just how. Going forward, I plan to continue refining my code using these principles, especially around testing and reducing dependencies to build even more robust and modular systems.
 
 ---
