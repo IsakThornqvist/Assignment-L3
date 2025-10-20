@@ -55,17 +55,12 @@ I tried to shorten my comments and applied a simple principle I learned about fr
 **Code Example:**
 ```js
     /**
-   * Sets up UI event listeners for the component.
-   *
-   * Attaches a click event handler to the "Generate Word" button,
-   * which retrieves and displays a new random word each time it’s pressed.
-   *
-   * @private
-   * @returns {void}
-   */
+     * Sets up click listener for word generation button.
+     *
+     * @private
+     */
     #setupWordEvents () {
       this.#generateWordButton.addEventListener('click', () => {
-        console.log('generate word')
         const randomWord = this.#getRandomWord()
         this.#displayWord.textContent = randomWord
       })
@@ -212,7 +207,16 @@ This modular system design allowed me to reason about the application at a highe
 ---
 
 ## Conclusion
-Throughout this project, applying Clean Code principles has made a noticeable difference in how I structure and reason about code. The focus on meaningful names, small functions, and strong boundaries improved readability and maintainability. While my code is not perfect, it is far cleaner, easier to debug, and more modular than before.
-The process also taught me to think more about why I write code in certain ways, not just how. Going forward, I plan to continue refining my code using these principles, especially around testing and reducing dependencies to build even more robust and modular systems.
+Throughout this project, applying Clean Code principles has fundamentally transformed my approach to software development. What began as a set guidelines evolved into practical habits that shaped my decitions in all from naming a simple variable to structuring the code.
+
+The most significant impact came from the multiple principles working together. Meaningful names made functions self-documenting, which reduced the need for comments. Small, focused functions with single responsibilities created good natural boundaries between modules. These boundaries, made the system more testable and maintainable. This teamwork between principles revealed that Clean Code is not just a checklist it is a important proccess where each practice reinforces the others.
+
+The challenges I faced, particularly in balancing abstraction with simplicity, taught me that clean code requires constant calls of judgements. There were moments where I had to refactor multiple times to find the right level of encapsulation, or decide whether a comment was truly necessary or just masking unclear code. These struggles deepened my understanding alot.
+
+Looking back at my early implementations versus the final code, the difference is very clear. The codebase is not only more readable but also more easy to change. Debugging and looking for errors became faster because well-named methods and clear responsibilities pointed me directly to the source of issue so finding the cause of a issue was easy. Adding new features became less risky because strong module boundaries prevented effects to leak out into the spplications other parts.
+
+I understand that mastery of these principles is a continuous journey. While I am quite satisfied with the structure and clarity I achieved at the end, there are areas for improvement, particularly in automated testing and further reducing dependencies. The principles I have mentioned here will serve as a foundation for more design patterns and decisions in future projects.
+
+Most importantly, this experience has shifted my mindset from "making code work" to "making code communicative." Clean Code is ultimately about respect for future maintainers, respect for teammates, and respect for my future self who will return to this code months from now. That perspective will guide my development practices long after this course ends I hope.
 
 ---
