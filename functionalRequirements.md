@@ -30,4 +30,4 @@ This requirements specification describes the requirements and features that "Gu
 | 16 | Word Visibility | The hidden word shall be clearly distinguishable as interactive (hoverable). | Visual inspection of the hidden word element | Medium | 5 | Implemented ✅ |
 | 17 | Performance | The application shall respond to user actions within 100ms. | Measure response time for button clicks and drawing | Medium | - | Implemented ✅ |
 | 18 | Colorful Theme | The UI shall use vibrant, playful colors suitable for a game. | Visual inspection of color scheme | Low | - | Implemented ✅ |
-| 19 | Error Handling | The application shall handle invalid inputs gracefully and not allow the user to do the wrong thing | Test adding players past 4 | Medium | 1 | Implemented ✅ |
+| 19 | Error Handling | The application shall handle invalid inputs gracefully make the user experience smooth. | Test adding players past 4 | Medium | 1 | Implemented ✅ |
