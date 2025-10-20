@@ -41,7 +41,7 @@ template.innerHTML = `
     }
 
     h2 {
-      color: #e08b1bff;
+      color: #2563eb;
       font-size: 1.8rem;
       margin-bottom: 20px;
       text-align: center;
@@ -65,7 +65,7 @@ template.innerHTML = `
     }
 
     #playerInputField:focus {
-      border-color: #e08b1bff;
+      border-color: #2563eb;
       box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
     }
 
@@ -118,7 +118,7 @@ template.innerHTML = `
     }
 
     #playerList button {
-      background: #e08b1bff;
+      background: #2563eb;
       color: white;
       border: none;
       padding: 8px 16px;

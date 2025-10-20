@@ -30,7 +30,7 @@ template.innerHTML = `
     }
 
     #generateWordButton {
-      background-color: #e08b1bff;
+      background-color: #2563eb;
       color: white;
       border: none;
       padding: 10px 15px;
@@ -41,7 +41,7 @@ template.innerHTML = `
     }
 
     #generateWordButton:hover {
-      background-color: #b68039ff;
+      background-color: #03297aff;
     }
 
     #wordDiv {

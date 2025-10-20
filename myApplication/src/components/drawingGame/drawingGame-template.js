@@ -66,23 +66,22 @@ template.innerHTML = `
   }
 
   #displayRound {
-    color: #e08b1bff;
+    color: #2563eb;
   }
 
   #currentDrawer::before {
     content: '🎨 Current Drawer: ';
-    color: #e08b1bff;
+    color: #2563eb;
   }
 
   #nextRoundButton,
   #backToStartScreenButton {
     background: white;
-    color: #e08b1bff;
+    color: #2563eb;
     border: none;
-    padding: 12px 30px;
-    border-radius: 25px;
+    padding: 10px 20px;
+    border-radius: 8px;
     font-size: 1rem;
-    font-weight: 600;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;

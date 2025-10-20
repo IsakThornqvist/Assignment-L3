@@ -16,7 +16,7 @@ customElements.define('player-manager',
     #playerManagerHeader
     #scoreHeader
     #currentPlayers = []
-    #isGameMode = false
+    #gameActive = false
 
     /**
      * Sets up the player-manager, shadow DOM, and grabs all the needed elements.
@@ -111,7 +111,7 @@ customElements.define('player-manager',
         const removePlayerButton = document.createElement('button')
         removePlayerButton.textContent = 'remove'
         removePlayerButton.classList.add('remove-button')
-        if (this.#isGameMode) {
+        if (this.#gameActive) {
           removePlayerButton.classList.add('hidden')
         }
         removePlayerButton.addEventListener('click', () => this.#removePlayer(index))
@@ -151,7 +151,7 @@ customElements.define('player-manager',
      * Toggles UI between add-player mode and leaderboard mode.
      */
     onlyShowPlayerList () {
-      this.#isGameMode = !this.#isGameMode
+      this.#gameActive = !this.#gameActive
       this.#playerNameInput.classList.toggle('hidden')
       this.#playerManagerHeader.classList.toggle('hidden')
       this.#scoreHeader.classList.toggle('hidden')

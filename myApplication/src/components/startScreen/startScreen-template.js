@@ -34,7 +34,7 @@ template.innerHTML = `
     }
 
     #startScreenHeader {
-      color: #e08b1bff;
+      color: #2563eb;
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 10px;
@@ -48,7 +48,7 @@ template.innerHTML = `
     }
 
     #startGameButton {
-      background: linear-gradient(135deg, #e08b1bff 0%, #ce2711ff 100%);
+      background: linear-gradient(135deg, #2563eb 0%, #3792ceff 100%);
       color: white;
       border: none;
       padding: 14px 36px;
