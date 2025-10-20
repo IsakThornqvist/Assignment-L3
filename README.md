@@ -87,6 +87,31 @@ gif here
 
 ### File Structure
 
+```js
+project-root/
+├── src/
+│   ├── components/
+│   │   ├── drawingGame/
+│   │   │   ├── drawingGame.js              # Main game component
+│   │   │   └── drawingGame-template.js     # Template and styles
+│   │   ├── playerManager/
+│   │   │   ├── playerManager.js            # Player management logic
+│   │   │   └── playerManager-template.js   # Player UI template
+│   │   ├── wordGenerator/
+│   │   │   ├── wordGenerator.js            # Word generation logic
+│   │   │   ├── wordList.js                 # Word List
+│   │   │   └── wordGenerator-template.js   # Word display template
+│   │   └── startScreen/
+│   │       ├── startScreen.js              # Start screen component
+│   │       └── startScreen-template.js     # Welcome screen template
+│   └── js/
+│       └── app.js                          # Application entry point
+├── myModule/                               # L2 canvas module (external)
+│   └── src/
+│       └── js/
+│           └── index.js                    # my-board module entry
+```
+
 ### Clean Code Principles
 
 ### License

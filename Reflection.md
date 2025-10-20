@@ -27,7 +27,7 @@ Chapter 2 is all about `meaningful names` and this is something that has had a b
   this.#showPlayerList()
 }
 ```
-The code above handles the `name submission` of the players and shows the list of the current players through the `  this.#showPlayerList()` call.
+The code above handles the `name submission` of the players and shows the list of the current players through the `this.#showPlayerList()` call.
 
 
 
