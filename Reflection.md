@@ -90,7 +90,7 @@ During development I consistently applied formatting best preactices to improve 
       }
     }
 ```
-In this code I tried to `indent` the code to make it as easy as possible to read, the `linter` helps me with the indentaion and foramtion of the code.
+In this code I tried to `indent` the code to make it as easy as possible to read, the `linter` helps me with the indentaion and formation of the code.
 
 ---
 
@@ -159,11 +159,13 @@ This separation made it easier to reuse and test components independently, and i
 ---
 
 ## Chapter 9: Unit Tests
+For this project, I decided not to implement automated unit tests, and instead focused on creating a good set of manual test cases. My reasoning for this is that the manual tests I developed effectively cover all the critical areas of the application, including functionality, user interactions, and visual elements.
 
-[4-6 sentences about how this chapter affected the code]
+While I did not automate these tests, I aimed to maintain the same level of structure typically found in unit testing. I followed the `F.I.R.S.T.` principles by ensuring that my manual tests are Fast, Independent, Repeatable, Self-Validating, and Timely. This helped me design clear and repeatable manual procedures that verify expected behaviors without relying on complex tooling.
 
-**Code Example:**
+I recognize that automated unit tests offer advantages such as speed, repeatability, and integration into CI/CD pipelines and automatic deployment. However, for this project, my focus was on verifying the overall structure and functionality of the drawing-game custom element. In this context, I found that manual testing provided sufficient coverage and allowed for more flexibility in evaluating the visual and interactive aspects of the application.
 
+In the future, I may consider adding basic structural unit tests, similar to those used in the L2 module to automatically verify that all required elements are present within the drawing-game component. This would complement the manual testing process and help ensure that future changes do not inadvertently break the application’s core structure.
 
 ---
 
