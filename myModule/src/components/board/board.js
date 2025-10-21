@@ -226,6 +226,9 @@ customElements.define('my-board',
       }
     }
 
+    /**
+     * Clears the canvas.
+     */
     clearCanvas () {
       const canvasContext = this.#canvas.getContext('2d')
       canvasContext.clearRect(0, 0, this.#canvas.width, this.#canvas.height)
