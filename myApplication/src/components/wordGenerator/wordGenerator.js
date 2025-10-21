@@ -10,7 +10,6 @@ customElements.define('word-generator',
  * @extends {HTMLElement}
  */
   class extends HTMLElement {
-    #wordGenerator
     #generateWordButton
     #displayWord
     #randomWords = wordList
@@ -23,7 +22,6 @@ customElements.define('word-generator',
 
       this.attachShadow({ mode: 'open' })
       this.shadowRoot.appendChild(template.content.cloneNode(true))
-      this.#wordGenerator = this.shadowRoot.querySelector('#wordGeneratorContainer')
       this.#generateWordButton = this.shadowRoot.querySelector('#generateWordButton')
       this.#displayWord = this.shadowRoot.querySelector('#displayWord')
     }
@@ -32,8 +30,17 @@ customElements.define('word-generator',
      * Sets up event listeners when element is inserted.
      */
     connectedCallback () {
-      console.log('word-gen added')
       this.#setupWordEvents()
+    }
+
+    /**
+ * Generates a new random word from the word list and displays it
+ *
+ * @returns {void}
+ */
+    showNewRandomWord () {
+      const randomWord = this.#getRandomWord()
+      this.#displayWord.textContent = randomWord
     }
 
     /**
@@ -58,16 +65,5 @@ customElements.define('word-generator',
     #getRandomWord () {
       const randomIndex = Math.floor(Math.random() * this.#randomWords.length)
       return this.#randomWords[randomIndex]
-    }
-
-    /**
- * Generates a new random word from the word list and displays it
- * in the word generator UI.
- *
- * @returns {void}
- */
-    showNewRandomWord () {
-      const randomWord = this.#getRandomWord()
-      this.#displayWord.textContent = randomWord
     }
   })

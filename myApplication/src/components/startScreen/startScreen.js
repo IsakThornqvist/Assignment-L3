@@ -9,8 +9,6 @@ customElements.define('start-screen',
  * @extends {HTMLElement}
  */
   class extends HTMLElement {
-    #startScreenHeader
-    #startScreenText
     #startGameButton
 
     /**
@@ -21,9 +19,7 @@ customElements.define('start-screen',
 
       this.attachShadow({ mode: 'open' })
       this.shadowRoot.appendChild(template.content.cloneNode(true))
-      this.#startScreenHeader = this.shadowRoot.querySelector('#startScreenHeader')
       this.#startGameButton = this.shadowRoot.querySelector('#startGameButton')
-      this.#startScreenText = this.shadowRoot.querySelector('#startScreenText')
     }
 
     /**
