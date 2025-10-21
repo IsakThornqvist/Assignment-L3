@@ -4,10 +4,10 @@ customElements.define('player-manager',
 
   /**
   * Manages game players and their scores.
-
+  *
   * @class
- * @extends {HTMLElement}
- */
+  * @extends {HTMLElement}
+  */
   class extends HTMLElement {
     #playerNameInput
     #playerList
@@ -41,7 +41,7 @@ customElements.define('player-manager',
     /**
      * Sets up event listeners for player input.
      *
-    * @private
+     * @private
      */
     #addPlayer () {
       this.#playerNameInput.addEventListener('keydown', (e) => {
@@ -89,7 +89,6 @@ customElements.define('player-manager',
      */
     #addPlayerToList (playerName) {
       this.#currentPlayers.push({ name: playerName, score: 0 })
-
       this.dispatchEvent(new CustomEvent('playersChanged'))
     }
 
@@ -101,79 +100,37 @@ customElements.define('player-manager',
     #showPlayerList () {
       this.#playerList.innerHTML = ''
       this.#currentPlayers.forEach((player, index) => {
-        const listItem = this.#createPlayerListItem(player, index)
-        this.#playerList.appendChild(listItem)
+        const li = this.#createPlayerListItem(player, index)
+        this.#playerList.appendChild(li)
       })
     }
 
-    /**
-     * Creates a single player list item element.
-     *
-     * @private
-     * @param {Object} player - Player object with name and score
-     * @param {number} index - Player index in array
-     * @returns {HTMLElement} Complete list item with buttons
-     */
     #createPlayerListItem (player, index) {
-      const playerList = document.createElement('li')
-      playerList.textContent = `${player.name} Score: ${player.score}`
-      playerList.dataset.index = index
+      const list = document.createElement('li')
+      list.textContent = `${player.name} Score: ${player.score}`
+      list.dataset.index = index
 
-      this.#appendPlayerButtons(playerList, index)
+      list.appendChild(this.#createRemoveButton(index))
+      list.appendChild(this.#createScoreButton('-', () => this.#decreasePlayerScore(index)))
+      list.appendChild(this.#createScoreButton('+', () => this.#increasePlayerScore(index)))
 
-      return playerList
+      return list
     }
 
-    /**
-     * Appends all action buttons to a player list item.
-     *
-     * @private
-     * @param {HTMLElement} listItem - The list item element
-     * @param {number} index - Player index
-     */
-    #appendPlayerButtons (listItem, index) {
-      const removeButton = this.#createRemoveButton(index)
-      const decreaseButton = this.#createScoreButton('-', () => this.#decreasePlayerScore(index))
-      const increaseButton = this.#createScoreButton('+', () => this.#increasePlayerScore(index))
-
-      listItem.appendChild(removeButton)
-      listItem.appendChild(decreaseButton)
-      listItem.appendChild(increaseButton)
-    }
-
-    /**
-     * Creates the remove player button.
-     *
-     * @private
-     * @param {number} index - Player index
-     * @returns {HTMLElement} Remove button element
-     */
     #createRemoveButton (index) {
-      const button = document.createElement('button')
-      button.textContent = 'remove'
-      button.classList.add('remove-button')
-
-      if (this.#gameActive) {
-        button.classList.add('hidden')
-      }
-
-      button.addEventListener('click', () => this.#removePlayer(index))
-      return button
+      const removeButton = document.createElement('button')
+      removeButton.textContent = 'remove'
+      removeButton.classList.add('remove-button')
+      if (this.#gameActive) removeButton.classList.add('hidden')
+      removeButton.addEventListener('click', () => this.#removePlayer(index))
+      return removeButton
     }
 
-    /**
-     * Creates a score adjustment button (+ or -).
-     *
-     * @private
-     * @param {string} label - Button label text
-     * @param {Function} clickHandler - Click event handler
-     * @returns {HTMLElement} Score button element
-     */
-    #createScoreButton (label, clickHandler) {
-      const button = document.createElement('button')
-      button.textContent = label
-      button.addEventListener('click', clickHandler)
-      return button
+    #createScoreButton (text, onClick) {
+      const scoreButton = document.createElement('button')
+      scoreButton.textContent = text
+      scoreButton.addEventListener('click', onClick)
+      return scoreButton
     }
 
     /**
@@ -185,7 +142,6 @@ customElements.define('player-manager',
     #removePlayer (index) {
       this.#currentPlayers.splice(index, 1)
       this.#showPlayerList()
-
       this.dispatchEvent(new CustomEvent('playersChanged'))
     }
 
@@ -242,10 +198,10 @@ customElements.define('player-manager',
     }
 
     /**
- * Returns the current list of players with their scores.
- *
- * @returns {Array<{name: string, score: number}>} Array of player objects.
- */
+     * Returns the current list of players with their scores.
+     *
+     * @returns {Array<{name: string, score: number}>} Array of player objects.
+     */
     getCurrentPlayers () {
       return this.#currentPlayers
     }
