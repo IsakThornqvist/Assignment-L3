@@ -19,6 +19,15 @@ This is an application (L3) that was made as part of the 1dv610 course at LNU un
 ## Access the application here
 https://assignmentl3.netlify.app/
 
+## Run Locally
+Run git clone https://github.com/IsakThornqvist/Assignment-L3.git in the terminal
+
+Run cd Assignment-L3 in the terminal
+
+Run npm install in the terminal
+
+Run npm run dev in the terminal and open the project in the browser
+
 ## Game Rules
 
 1. Setup Phase:
@@ -113,6 +122,9 @@ project-root/
 │       └── js/
 │           └── index.js                    # my-board module entry
 ```
+
+## Module repo
+https://github.com/IsakThornqvist/Assignment-L2
 
 ### Clean Code Principles
 This project was made with  the book "Clean Code" chapters 2-11 from Robert C. Martin, for a detailed analysis, see `reflection.md`
