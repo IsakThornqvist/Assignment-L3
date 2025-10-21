@@ -12,7 +12,7 @@ This reflection document examines how the principles from Robert C. Martin's "Cl
 ---
 
 ## Chapter 2: Meaningful Names
-Chapter 2 is all about `meaningful names` and this is something that has had a big influnce in how I name my methods, variables etc. An axample of this in my code is the `#increasePlayerScore` method, at first I named the method `#increaseScore` but then I remembered that with just adding the small word of **player** in the method name the goes from being fairly good to  being really good and meaningful. Another good practise is to try to communicate the indent clearly so from only reading the method names you should be able to get a good understanding of what is going on and what responsibilities the method has. Overall enforcing this on my code made it easier to maintain because if something went wrong I sort of knew where to look.
+Chapter 2 is all about `meaningful names` and this is something that has had a big influence in how I name my methods, variables etc. An axample of this in my code is the `#increasePlayerScore` method, at first I named the method `#increaseScore` but then I remembered that with just adding the small word of **player** in the method name the goes from being fairly good to  being really good and meaningful. Another good practise is to try to communicate the indent clearly so from only reading the method names you should be able to get a good understanding of what is going on and what responsibilities the method has. Overall enforcing this on my code made it easier to maintain because if something went wrong I sort of knew where to look.
 
 
 **Code Example:**
@@ -36,7 +36,7 @@ The code above handles the `name submission` of the players and shows the list o
 ## Chapter 3: Functions
 Chapter 3 is all about `functions` and how to design them, the thing that left the biggest mark on me from this chapter is the `single responsibility principle` by keeping the functions small and focused one one task. During development there was many times where I implemented a functionality and then went back to refactor the code and seperate the fuctionality between the different methods as much as possible. 
 
-Another thing that gets brough up in chapter 3 is that you should keep the `number of arguments` to a minumal (0-2). The most ammount of arguments a method has in my code is currently one. So to sum it up, in general I had chapter 3 in mind during the entire development proccess and tried to follow the guidelines in it to the best of my ability.
+Another thing that gets brough up in chapter 3 is that you should keep the `number of arguments` to a minumal (0-2). The most amount of arguments a method has in my code is currently one. So to sum it up, in general I had chapter 3 in mind during the entire development proccess and tried to follow the guidelines in it to the best of my ability.
 
 **Code Example:**
 ```js
@@ -207,7 +207,7 @@ This modular system design allowed me to reason about the application at a highe
 ---
 
 ## Conclusion
-Throughout this project, applying Clean Code principles has fundamentally transformed my approach to software development. What began as a set guidelines evolved into practical habits that shaped my decitions in all from naming a simple variable to structuring the code.
+Throughout this project, applying Clean Code principles has fundamentally changed my approach to software development. What started out as a set of guidelines evolved into habits that shaped my decisions in all from naming a simple variable to structuring the code.
 
 The most significant impact came from the multiple principles working together. Meaningful names made functions self-documenting, which reduced the need for comments. Small, focused functions with single responsibilities created good natural boundaries between modules. These boundaries, made the system more testable and maintainable. This teamwork between principles revealed that Clean Code is not just a checklist it is a important proccess where each practice reinforces the others.
 

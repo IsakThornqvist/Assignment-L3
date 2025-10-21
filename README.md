@@ -1,5 +1,5 @@
 # Drawing Game Application
-This is a application (L3) that was made as part of the 1dv610 course at LNU university in Kalmar, The application itself is a multiplayer drawing game built with Web Components and vanilla JavaScript. Players take turns drawing words while keeping track of scores in this engaging and interactive browser-based game. Built on top of the custom my-board drawing module, this application demonstrates clean code principles and modular architecture.
+This is an application (L3) that was made as part of the 1dv610 course at LNU university in Kalmar, The application itself is a multiplayer drawing game built with Web Components and vanilla JavaScript. Players take turns drawing words while keeping track of scores in this engaging and interactive browser-based game. Built on top of the custom my-board drawing module, this application demonstrates clean code principles and modular architecture.
 
 ## Features
 
@@ -15,6 +15,7 @@ This is a application (L3) that was made as part of the 1dv610 course at LNU uni
 ## Demo
 
 ![Demo](/Assignment-L3//myApplication/demo/demo.png)
+
 ## Access the application here
 https://assignmentl3.netlify.app/
 
@@ -25,8 +26,8 @@ https://assignmentl3.netlify.app/
 - Press **"Start Game"** when ready
 
 2. Gameplay:
-- The current drawer sees a random word at the roght of the canvas
-- The drawer should hover over the hidden word while the other players look away
+- The current drawer sees a random word at the right of the canvas
+- Hover over the hidden word (only the drawer should see it)
 - Draw the word using the canvas tools
 - Other players try to guess what's being drawn
 - Press "Next Player" to rotate turns
