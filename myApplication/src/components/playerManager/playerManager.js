@@ -39,6 +39,37 @@ customElements.define('player-manager',
     }
 
     /**
+     * Toggles UI between add-player mode and leaderboard mode.
+     */
+    onlyShowPlayerList () {
+      this.#gameActive = !this.#gameActive
+      this.#playerNameInput.classList.toggle('hidden')
+      this.#playerManagerHeader.classList.toggle('hidden')
+      this.#scoreHeader.classList.toggle('hidden')
+      const removeButtons = this.shadowRoot.querySelectorAll('.remove-button')
+      removeButtons.forEach(btn => btn.classList.toggle('hidden'))
+    }
+
+    /**
+     * Returns the current list of players with their scores.
+     *
+     * @returns {Array<{name: string, score: number}>} Array of player objects.
+     */
+    getCurrentPlayers () {
+      return this.#currentPlayers
+    }
+
+    /**
+     * Resets all player scores to 0.
+     */
+    resetScores () {
+      this.#currentPlayers.forEach(player => {
+        player.score = 0
+      })
+      this.#showPlayerList()
+    }
+
+    /**
      * Sets up event listeners for player input.
      *
      * @private
@@ -93,47 +124,6 @@ customElements.define('player-manager',
     }
 
     /**
-     * Renders player list with action buttons.
-     *
-     * @private
-     */
-    #showPlayerList () {
-      this.#playerList.innerHTML = ''
-      this.#currentPlayers.forEach((player, index) => {
-        const li = this.#createPlayerListItem(player, index)
-        this.#playerList.appendChild(li)
-      })
-    }
-
-    #createPlayerListItem (player, index) {
-      const list = document.createElement('li')
-      list.textContent = `${player.name} Score: ${player.score}`
-      list.dataset.index = index
-
-      list.appendChild(this.#createRemoveButton(index))
-      list.appendChild(this.#createScoreButton('-', () => this.#decreasePlayerScore(index)))
-      list.appendChild(this.#createScoreButton('+', () => this.#increasePlayerScore(index)))
-
-      return list
-    }
-
-    #createRemoveButton (index) {
-      const removeButton = document.createElement('button')
-      removeButton.textContent = 'remove'
-      removeButton.classList.add('remove-button')
-      if (this.#gameActive) removeButton.classList.add('hidden')
-      removeButton.addEventListener('click', () => this.#removePlayer(index))
-      return removeButton
-    }
-
-    #createScoreButton (text, onClick) {
-      const scoreButton = document.createElement('button')
-      scoreButton.textContent = text
-      scoreButton.addEventListener('click', onClick)
-      return scoreButton
-    }
-
-    /**
      * Removes player at index.
      *
      * @private
@@ -146,18 +136,6 @@ customElements.define('player-manager',
     }
 
     /**
-     * Toggles UI between add-player mode and leaderboard mode.
-     */
-    onlyShowPlayerList () {
-      this.#gameActive = !this.#gameActive
-      this.#playerNameInput.classList.toggle('hidden')
-      this.#playerManagerHeader.classList.toggle('hidden')
-      this.#scoreHeader.classList.toggle('hidden')
-      const removeButtons = this.shadowRoot.querySelectorAll('.remove-button')
-      removeButtons.forEach(btn => btn.classList.toggle('hidden'))
-    }
-
-    /**
      * Increments player score (max 8).
      *
      * @private
@@ -166,7 +144,7 @@ customElements.define('player-manager',
     #increasePlayerScore (index) {
       const currentPlayer = this.#currentPlayers[index]
       if (currentPlayer.score >= 8) {
-        console.log('Score cannot go higer than 8')
+        console.log('Score cannot go higher than 8')
       } else {
         currentPlayer.score = currentPlayer.score + 1
         this.#showPlayerList()
@@ -198,22 +176,67 @@ customElements.define('player-manager',
     }
 
     /**
-     * Returns the current list of players with their scores.
+     * Renders player list with action buttons.
      *
-     * @returns {Array<{name: string, score: number}>} Array of player objects.
+     * @private
      */
-    getCurrentPlayers () {
-      return this.#currentPlayers
+    #showPlayerList () {
+      this.#playerList.innerHTML = ''
+      this.#currentPlayers.forEach((player, index) => {
+        const li = this.#createPlayerListItem(player, index)
+        this.#playerList.appendChild(li)
+      })
     }
 
     /**
-     * Resets all player scores to 0.
-     */
-    resetScores () {
-      this.#currentPlayers.forEach(player => {
-        player.score = 0
-      })
-      this.#showPlayerList()
+   * Creates a player list item.
+   *
+   * @private
+   * @param {{name: string, score: number}} player
+   * @param {number} index
+   * @returns {HTMLElement}
+   */
+    #createPlayerListItem (player, index) {
+      const list = document.createElement('li')
+      list.textContent = `${player.name} Score: ${player.score}`
+      list.dataset.index = index
+
+      list.appendChild(this.#createRemoveButton(index))
+      list.appendChild(this.#createScoreButton('-', () => this.#decreasePlayerScore(index)))
+      list.appendChild(this.#createScoreButton('+', () => this.#increasePlayerScore(index)))
+
+      return list
+    }
+
+    /**
+   * Creates a remove button.
+   *
+   * @private
+   * @param {number} index
+   * @returns {HTMLElement}
+   */
+    #createRemoveButton (index) {
+      const removeButton = document.createElement('button')
+      removeButton.textContent = 'remove'
+      removeButton.classList.add('remove-button')
+      if (this.#gameActive) removeButton.classList.add('hidden')
+      removeButton.addEventListener('click', () => this.#removePlayer(index))
+      return removeButton
+    }
+
+    /**
+   * Creates a score button.
+   *
+   * @private
+   * @param {string} text
+   * @param {Function} onClick
+   * @returns {HTMLButtonElement}
+   */
+    #createScoreButton (text, onClick) {
+      const scoreButton = document.createElement('button')
+      scoreButton.textContent = text
+      scoreButton.addEventListener('click', onClick)
+      return scoreButton
     }
   }
 )
