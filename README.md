@@ -14,8 +14,7 @@ This is a application (L3) that was made as part of the 1dv610 course at LNU uni
 
 ## Demo
 
-gif here
-
+![Demo](/Assignment-L3//myApplication/demo/demo.png)
 ## Access the application here
 https://assignmentl3.netlify.app/
 
@@ -65,9 +64,9 @@ https://assignmentl3.netlify.app/
 - Provides random word prompts for each drawing round.
 
 #### Features:
-- Random word selection
+- Automatic random word selection
 - Word reveal on hover
-- "New Word" button for turn changes
+- "New Word" button for manually changing words
 
 ### Start Screen `(start-screen)`
 - Welcome screen with game instructions.
