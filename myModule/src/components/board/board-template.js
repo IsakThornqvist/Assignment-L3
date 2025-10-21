@@ -3,7 +3,7 @@ export const template = document.createElement('template')
 template.innerHTML = `
 <div id='boardContainer'>
     <div id='header'>
-        <h1>The Board</h1>
+        <h1>Drawing Game</h1>
         <slot name="headerPanel"></slot>
         <button id='clearCanvasButton'>Clear Canvas</button>
     </div>
