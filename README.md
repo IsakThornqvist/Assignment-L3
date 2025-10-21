@@ -14,7 +14,7 @@ This is an application (L3) that was made as part of the 1dv610 course at LNU un
 
 ## Demo
 
-![Demo](/Assignment-L3//myApplication/demo/demo.png)
+![Demo](./myApplication/demo/demo.png)
 
 ## Access the application here
 https://assignmentl3.netlify.app/
