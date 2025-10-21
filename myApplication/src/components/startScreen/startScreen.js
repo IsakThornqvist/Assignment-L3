@@ -28,7 +28,6 @@ customElements.define('start-screen',
     connectedCallback () {
       this.#startGameButton.addEventListener('click', () => {
         this.dispatchEvent(new CustomEvent('startGame'))
-        console.log('start clicked')
       })
     }
   }

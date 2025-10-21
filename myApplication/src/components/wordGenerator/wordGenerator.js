@@ -50,7 +50,6 @@ customElements.define('word-generator',
      */
     #setupWordEvents () {
       this.#generateWordButton.addEventListener('click', () => {
-        console.log('generate word')
         const randomWord = this.#getRandomWord()
         this.#displayWord.textContent = randomWord
       })
