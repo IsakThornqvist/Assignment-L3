@@ -1,4 +1,5 @@
 # Drawing Game Application
+This is a application (L3) that was made as part of the 1dv610 course at LNU university in Kalmar, The application itself is a multiplayer drawing game built with Web Components and vanilla JavaScript. Players take turns drawing words while keeping track of scores in this engaging and interactive browser-based game. Built on top of the custom my-board drawing module, this application demonstrates clean code principles and modular architecture.
 
 ## Features
 
@@ -16,6 +17,7 @@
 gif here
 
 ## Access the application here
+https://assignmentl3.netlify.app/
 
 ## Game Rules
 
@@ -113,7 +115,19 @@ project-root/
 ```
 
 ### Clean Code Principles
+This project was made with  the book "Clean Code" chapters 2-11 from Robert C. Martin, for a detailed analysis, see `reflection.md`
 
 ### License
+This project is licensed under the MIT License. You are free to use, modify, and distribute it for personal or commercial purposes.
 
-### Acknowledgments
+### Future Enhancements
+- Timer for each turn
+- Chat functionality for guessing
+- Word categories (easy, medium, hard)
+- Difficulty levels
+- Save/load game state
+- Sound effects and animations
+- Mobile touch optimization
+- Multiplayer over network
+- Game statistics and history
+- Custom word lists
